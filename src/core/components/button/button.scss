@@ -1,0 +1,31 @@
+.q-button {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 24px;
+  box-shadow: 1px 1px 1px black;
+
+  &.q-small {
+    height: 18px;      
+  }
+
+  &.q-large {
+    height: 32px;      
+  }
+
+  &.q-rounded {
+    &.q-small {
+      border-radius: 9px;
+    }
+    &.q-large {
+      border-radius: 16px;
+    }
+    border-radius: 12px;
+  }
+
+  &.q-primary {
+    color: white;
+    background-color: red;
+  }
+}

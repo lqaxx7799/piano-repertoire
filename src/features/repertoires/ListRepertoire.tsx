@@ -1,8 +1,6 @@
-import { Button } from "@components/button";
+import { Button } from '@core/components';
 
-type Props = {
-
-};
+type Props = {};
 
 const ListRepertoire = (props: Props) => {
   const click = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -12,10 +10,7 @@ const ListRepertoire = (props: Props) => {
   return (
     <div>
       <h1>Piano Repertoire</h1>
-      <Button
-        onClick={click}
-        text={<div>Oh no</div>}
-      ></Button>
+      <Button onClick={click} text={<div>Oh no</div>}></Button>
     </div>
   );
 };
