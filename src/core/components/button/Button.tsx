@@ -11,7 +11,7 @@ export const Button = ({ text, variation = 'primary', ...props }: ButtonPropType
   return (
     <button
       {...props}
-      className={`q-button ${props.className}`}
+      className={`q-button q-${variation} ${props.className}`}
     >
       {text}
     </button>

@@ -18,6 +18,9 @@
     "paths": {
       "@core/*": [
         "./src/core/*"
+      ],
+      "@assets/*": [
+        "./src/assets/*"
       ]
     }
   },
