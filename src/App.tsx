@@ -1,8 +1,16 @@
-import ListRepertoire from './features/repertoires/ListRepertoire';
+import { ListRepertoire } from '@features/repertoires';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <ListRepertoire />,
+  },
+]);
 
 const App = () => {
   return (
-    <ListRepertoire />
+    <RouterProvider router={router} />
   );
 }
 

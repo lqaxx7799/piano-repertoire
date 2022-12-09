@@ -1,18 +1,22 @@
 import { Button } from '@core/components';
+import { RepertoireItem } from './components';
+import style from './ListRepertoire.module.scss';
 
-type Props = {};
+interface Props {
 
-const ListRepertoire = (props: Props) => {
+};
+
+export const ListRepertoire = (props: Props) => {
   const click = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     console.log((event.target as HTMLButtonElement).innerHTML);
   };
 
   return (
     <div>
-      <h1>Piano Repertoire</h1>
-      <Button onClick={click} text={<div>Oh no</div>}></Button>
+      <div className={style.listWrapper}>
+        <div className={style.listHeader}>Piano Repertoire</div>
+        <RepertoireItem />
+      </div>
     </div>
   );
 };
-
-export default ListRepertoire;

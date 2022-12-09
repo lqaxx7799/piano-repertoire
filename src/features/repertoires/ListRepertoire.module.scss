@@ -1,0 +1,19 @@
+.listWrapper {
+  width: calc(100vw - 120px);
+  height: 1000px;
+  margin: 48px auto 48px auto;
+  filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.3));
+  border-radius: 48px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 36px;
+}
+
+.listHeader {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--color-primary-very-dark);
+  align-self: center;
+  margin-bottom: 12px;
+}
