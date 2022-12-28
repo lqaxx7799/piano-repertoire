@@ -1,7 +1,8 @@
+import { IRepertoireItem } from '@features/repertoires/slice';
 import style from './RepertoireItem.module.scss';
 
 interface Props {
-
+  item: IRepertoireItem;
 }
 
 export const RepertoireItem = (props: Props) => {
@@ -14,7 +15,7 @@ export const RepertoireItem = (props: Props) => {
     <div className={style.itemWrapper}>
       <a className={style.itemTitle} href="#" onClick={showItem}>
         <span>Title: </span>
-        <span>Tea For Two</span>
+        <span>{props.item.name}</span>
       </a>
     </div>
   );

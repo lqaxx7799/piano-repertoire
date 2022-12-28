@@ -1,10 +1,12 @@
 import { repertoireApi } from '@features/repertoires/slice';
+import repertoireSlice from '@features/repertoires/slice/repertoireSlice';
 import { configureStore } from '@reduxjs/toolkit';
 
 export const store = configureStore({
   reducer: {
     // Add the generated reducer as a specific top-level slice
     [repertoireApi.reducerPath]: repertoireApi.reducer,
+    repertoire: repertoireSlice,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
