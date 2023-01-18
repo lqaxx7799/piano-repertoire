@@ -1,28 +1,34 @@
-import { Button } from '@core/components';
 import { RepertoireItem } from './components';
 import style from './ListRepertoire.module.scss';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
-import { IRepertoireItem } from './slice';
+import { RootState, useAppDispatch } from '@store';
+import { useEffect } from 'react';
+import { fetchAllRepertoires } from './slice/repertoireSlice';
 
-interface Props {
-};
+interface Props {}
 
 export const ListRepertoire = (props: Props) => {
-  const data = useSelector((state: RootState) => state.repertoire.data);
+  const { data, selectedRepertoireId } = useSelector((state: RootState) => state.repertoire);
 
-  const click = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    console.log((event.target as HTMLButtonElement).innerHTML);
-  };
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAllRepertoires());
+  }, [dispatch]);
 
   return (
     <div>
       <div className={style.listWrapper}>
         <div className={style.listHeader}>Piano Repertoire</div>
         <div className={style.list}>
-          {data.map(item => <RepertoireItem item={item} />)}
+          {data.map((item) => (
+            <RepertoireItem key={item.id} item={item} />
+          ))}
         </div>
       </div>
+      {selectedRepertoireId && (
+        <div>Selected Id: {selectedRepertoireId} </div>
+      )}
     </div>
   );
 };
