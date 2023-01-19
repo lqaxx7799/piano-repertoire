@@ -1,4 +1,4 @@
-import { RepertoireItem } from './components';
+import { RepertoireItem, RepertoireDetail } from './components';
 import style from './ListRepertoire.module.scss';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '@store';
@@ -17,18 +17,20 @@ export const ListRepertoire = (props: Props) => {
   }, [dispatch]);
 
   return (
-    <div>
-      <div className={style.listWrapper}>
-        <div className={style.listHeader}>Piano Repertoire</div>
-        <div className={style.list}>
-          {data.map((item) => (
-            <RepertoireItem key={item.id} item={item} />
-          ))}
+    <>
+      <div className={style.listHeader}>Piano Repertoire</div>
+      <div className={style.wrapper}>
+        <div className={[style.listWrapper, style[selectedRepertoireId ? 'opened' : 'closed']].join(' ')}>
+          <div className={style.list}>
+            {data.map((item) => (
+              <RepertoireItem key={item.id} item={item} />
+            ))}
+          </div>
         </div>
+        {selectedRepertoireId && (
+          <RepertoireDetail />
+        )}
       </div>
-      {selectedRepertoireId && (
-        <div>Selected Id: {selectedRepertoireId} </div>
-      )}
-    </div>
+    </>
   );
 };
